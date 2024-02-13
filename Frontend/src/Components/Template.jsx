@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
+import Footer from './Footer'
 
 export default function Template(props) {
   return (
@@ -8,6 +9,7 @@ export default function Template(props) {
       <div>
         {props.children}
       </div>
+      <Footer/>
     </div>
   )
 }

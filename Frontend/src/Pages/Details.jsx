@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Jobapply() {
+export default function Details() {
   return (
     <div>
       

@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const jobSchema = new mongoose.Schema({
+  postedby:{
+    type:mongoose.Schema.Types.ObjectId,ref:"User",
+    required:true
+    
+  },
   title: {
     type: String,
     required: true
@@ -26,8 +31,8 @@ const jobSchema = new mongoose.Schema({
   },
   salary: {
     type: Number,
-  },
-  applicationDeadline: Date,
+  }
+
 }, { timestamps: true });
 
 const Job = mongoose.model('Job', jobSchema);
