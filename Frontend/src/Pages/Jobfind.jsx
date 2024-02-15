@@ -32,7 +32,7 @@ const userstate=useSelector(state=>state.User)
               onClick={() => {
                 dispatch({
                   type: JOB,
-                  payload: { jobid: item._id,title:item.title,company:item.company, salary: item.salary, description: item.description, location: item.location, description: item.description }
+                  payload: { jobid: item._id,title:item.title,company:item.company, salary: item.salary, location: item.location, description: item.description }
                 })
               }}
               className='h-64 rounded-t-2xl  bg-cover '>
