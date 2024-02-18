@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
+import { FaPlus } from "react-icons/fa";
+
 import CustomDropdown from './Dropdown'
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +24,7 @@ export default function Navbar() {
    const active=" border-b-4  border-[#f06f35]"
    const logi="border-2  h-10 flex border-[#f06f35] hover:text-white transition-all hover:bg-[#f06f35] justify-center items-center rounded-full w-20"
    const logit="text-white bg-[#f06f35] border-2  h-10 flex transition-all justify-center items-center rounded-full w-20"
-const normal="border-[#ede5e6]  border-b-4  hover:border-[#f06f35]"
+const normal="border-[#ede5e6] border-transparent border-b-4  hover:border-[#f06f35]"
   const Ink=()=>{
    
     return<>
@@ -36,12 +38,12 @@ const normal="border-[#ede5e6]  border-b-4  hover:border-[#f06f35]"
       {/* <div className='flex justify-evenly gap-12'></div> */}
       <div className='md:flex justify-center items-center hidden  gap-12'><ToastContainer/>
      
-     <div className='flex flex-col'>  <NavLink to={"/"} className={({isActive})=>isActive?active:normal}>Home</NavLink>
+     <div className='flex flex-col'>  <NavLink to={"/"} className={({isActive})=>isActive?`${active}`:`${normal}`}>Home</NavLink>
 
-      <div  className='acha  '></div>
+      
       </div>
       <NavLink to={"/about"} className={({isActive})=>isActive?active:normal}>About</NavLink>
-      {UserState.loginuser?.isEmployee==true?<NavLink className={({isActive})=>isActive?active:normal} to={"/jobfind"}>Find a job</NavLink>:<NavLink className={({isActive})=>isActive?active:normal} to={"/jobpost"}>Post a job</NavLink>}{
+      {UserState.loginuser?.isEmployee==true?<NavLink className={({isActive})=>isActive?active:normal} to={"/jobfind"}>Find a job</NavLink>:<NavLink className={({isActive})=>isActive?active:normal} to={"/jobfind"}>Explore</NavLink>}{
 UserState.loginuser?.Username? <CustomDropdown/> :<Ink/>
       }
       </div>

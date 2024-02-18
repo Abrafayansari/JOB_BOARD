@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { LOGOUT } from '../Redux/Action';
+import { FaPlus, FaPlusCircle } from 'react-icons/fa';
 
 const CustomDropdown = () => {
+  const Userstate=useSelector(state=>state.User)
   const [isOpen, setIsOpen] = useState(false);
   const globalState=useSelector(state=>state)
   const dispatch=useDispatch()
@@ -17,13 +19,15 @@ const navigate=useNavigate()
   const closeDropdown = () => {
     setIsOpen(false);
   };
+  const logit="text-white gap-1 bg-[#f06f35] border-2  h-10 flex transition-all justify-center items-center rounded-full w-20"
+  const logi="border-2 gap-1 h-10 flex border-[#f06f35] hover:text-white transition-all hover:bg-[#f06f35] justify-center items-center rounded-full w-20"
 
   return (
-    <div className="relative inline-block cursor-pointer text-left">
+    <div className="relative justify-evenly  mr-[ flex cursor-pointer text-left">
       <div>
         <div
           type="button"
-          className="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-black hover:text-[#4440DA] items-center  focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75"
+          className="inline-flex justify-center w-full  py-2 text-base font-medium text-black hover:text-[#4440DA] items-center  focus:outline-none focus-visible:ring focus-visible:ring-gray-500 focus-visible:ring-opacity-75"
           id="options-menu"
           onClick={toggleDropdown}
         >
@@ -55,7 +59,11 @@ const navigate=useNavigate()
             
           </div>
         </div>
+       
       )}
+      <div className='ml-[4vw]'>
+      {Userstate.loginuser?.isEmployee==true?<NavLink className={({isActive})=>isActive?logit:logi} to={"/jobfind"}>Find</NavLink>:<NavLink className={({isActive})=>isActive?logit:logi} to={"/jobpost"}>Post <FaPlusCircle /></NavLink>}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,36 @@
+[
+      {
+        "title": "Software Engineer",
+        "icon": "AiOutlineCode"
+      },
+      {
+        "title": "Health Care",
+        "icon": "GiNurse"
+      },
+      {
+        "title": "Marketing Manager",
+        "icon": "FaMarketing"
+      },
+      {
+        "title": "Accounting",
+        "icon": "MdBuild"
+      },
+      {
+        "title": "Business Development",
+        "icon": "GiCook"
+      },
+      {
+        "title": "Project Management",
+        "icon": "FaChartLine"
+      },
+      {
+        "title": "Teacher",
+        "icon": "GiTeacher"
+      },
+      {
+        "title": "finance",
+        "icon": "FaTools"
+      }
+    ]
+  
+  

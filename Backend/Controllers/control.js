@@ -31,6 +31,7 @@ exports.create=async(req,res)=>{
           const {
             postedby,
             title,
+            category,
             company,
             location,
             description,
@@ -41,6 +42,7 @@ exports.create=async(req,res)=>{
           const newJob = await Job.create({
             postedby,
             title,
+            category,
             company,
             location,
             description,

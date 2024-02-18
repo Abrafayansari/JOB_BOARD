@@ -11,6 +11,7 @@ const Jobpost = () => {
     title: '',
     description: '',
     salary: '',
+    category:"",  
     type: '',
     requirements: '',
     location: '',
@@ -31,6 +32,7 @@ const Jobpost = () => {
       postedby:Userstate.loginuser.userid,
       title:formData.title,
       company:formData.company,
+      category:formData.category,
       location:formData.location,
       description:formData.description,
       requirements:formData.requirements,
@@ -68,7 +70,20 @@ const Jobpost = () => {
             required
           />
         </div>
-
+        <div className="mb-4">
+          <label htmlFor="category" className="block text-xl font-medium  text-black">
+          Category
+          </label>
+          <input
+            type="text"
+            id="category"
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+            className="mt-1 p-2 border-2 rounded-md w-full"
+            required
+          />
+        </div>
         {/* Description */}
         <div className="mb-4">
           <label htmlFor="description" className="block text-xl font-medium  text-black">
