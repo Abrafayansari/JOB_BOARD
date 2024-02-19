@@ -10,13 +10,32 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import { FaChartPie } from "react-icons/fa";
 import { BsCalculator } from "react-icons/bs";
 import { GiTeacher } from "react-icons/gi";
+import { FaGlobeAmericas } from "react-icons/fa";
 import { FaUserDoctor } from "react-icons/fa6";
+import getlogo from "./Logo"
+import axios from "axios"
 import job from "../data/data.json"
 export default function Home() {
+const [secjob,setsecjob]=useState([])
+const Axis=async()=>{
+await axios.get("http://localhost:8080/find-jobs")
+.then((res)=>setsecjob(res.data))
+.catch((e)=>console.log(e))
+}
+const formatDate = (dateString) => {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('en-US',options);
+};
+useEffect(() => {
+ Axis()
+}, [])
+
+
+
   const getIcon = (iconName) => {
     switch (iconName) {
       case 'AiOutlineCode':
-        return <IoCodeSlash  className='h-[7vh]  text-[#f06 w-[7vw]' />;
+        return <IoCodeSlash  className='h-[7vh]  w-[7vw]' />;
       case 'GiNurse':
         return <FaUserDoctor  className='h-[7vh] hover:text-white w-[7vw]'/>
       case 'FaMarketing':
@@ -56,10 +75,10 @@ export default function Home() {
           <img className='h-[100%]  w-[100%]' src="./job,.png" alt="" />
           </div>
         </div>
-        <div className='h-[200vh]'>
+        <div className='h-[170vh]'>
           <h1 className='text-5xl font-bold mt-20  ml-[4vw]'>Search by Category
 </h1>
-<h1 className='ml-[4vw] mt-5 text-[#323233]'>Search your career opportunity with our categories</h1>
+<h1 className='ml-[4vw] mt-5 text-[#464646]'>Search your career opportunity with our categories</h1>
 
         <div className='flex mt-32 gap-y-3 w-[90vw] gap-3 justify-start flex-wrap overflow-hidden ml-[4vw]'>
   {job.map((item,index)=>{
@@ -82,6 +101,35 @@ return(
 </div>
 <button className='bg-[#f06f35] flex items-center gap-3 ml-[7vw] mt-20   px-4 rounded-2xl w-52  text-white h-16 p-2 text-left font-bold text-xl'> Explore More <HiArrowNarrowRight /></button>
 
+        </div>
+        <div className='h-[320vh] flex flex-col  w-full bg-[#ede5e6]'>
+          <div className='mt-20'>
+          <h1 className='text-5xl font-bold ml-[4vw] '>Featured Job Offers</h1>
+          <h1 className='ml-[4vw] mt-5 font-bold text-[#464646]'>Search your career opportunity through 12,800 jobs</h1>
+
+           <div className='flex flex-wrap gap-7 ml-[4vw] mt-32'>
+  {secjob.slice(0, 8).map((item,index)=>{
+    return <div key={index} className=' bg-white relative  rounded-3xl   w-[28vw] h-[75vh]'>
+<div style={{transition: "all",backgroundImage: `url(${item.bgimage})`}} className={`h-[40%]  w-full bg-cover rounded-3xl border-black`}> 
+<div  className='h-[6vw] w-[6vw] absolute  right-5 rounded-3xl mt-32 z-1 '>
+  <img className='h-[6vw] w-[6vw]   rounded-3xl z-1 ' src={`https://api.dicebear.com/7.x/icons/svg?seed=${item.company}`} alt="" />
+</div>
+</div>
+<div>
+  <div className='flex ml-9 mt-3 items-center gap-2'><span className='h-8 w-8 rounded-2xl bg-[#ede5e6] flex justify-center items-center border-black'>{getlogo(item.category)}</span> <h1 className='text-sm'>{item.category}</h1></div>
+  <div className='ml-9 mt-6 '>
+    <h1 className='text-xl font-bold'>{item.title}</h1>
+    <div className='flex gap-3 mt-4 items-center'><span><FaGlobeAmericas /></span> <h1 className=''>{item.location}</h1> <span  className='ml-28 text-gray-500'>{item.type}</span></div>
+  </div>
+  <div className='mt-6 ml-9'><span>$</span>{item.salary[0]}/yr-${item.salary[1]}/yr</div>
+  <h1 className='ml-9 text-sm font-thin text-gray-500 mt-5'>{formatDate(item.createdAt)}{"   "}by</h1>
+  <h1 className='ml-9 text-sm font-bold mt-1 '>{item.company}</h1>
+</div>
+    </div>
+  })}
+</div>
+
+          </div>
         </div>
 
         

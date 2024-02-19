@@ -1,5 +1,5 @@
 const express =require("express")
-const { create, find, createjob, findjob, findjobbyperson, findapply } = require("../Controllers/control")
+const { create, find, createjob, findjob, findjobbyperson, findapply, uploadjob } = require("../Controllers/control")
 const upload=require("../Multer")
 const cloudinary=require("cloudinary")
 const fs = require("fs")
@@ -12,4 +12,5 @@ router.get("/find-jobs",findjob)
 router.post("/findpersonjob",findjobbyperson)
 router.post("/uploadresume",upload.single("Resume"),uploads)
 router.get("/findapply",findapply)
+router.post("/uploadjob",uploadjob)
 module.exports={router}

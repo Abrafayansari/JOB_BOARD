@@ -6,11 +6,35 @@ import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 
 const Jobpost = () => {
+  // const getlogo = (logo) => {
+  //   switch (logo) {
+  //     case formData.category=="Software Engineering":
+  //       return <IoCodeSlash  className='h-[7vh]  w-[7vw]' />;
+  //     case formData.category=='Health Care':
+  //       return <FaUserDoctor  className='h-[7vh] hover:text-white w-[7vw]'/>
+  //     case formData.category=='Marketing Manager':
+  //       return <HiSpeakerphone   className='h-[7vh] hover:text-white w-[7vw]'/>;
+  //     case formData.category=='Accounting':
+  //       return <BsCalculator  className='h-[7vh] hover:text-white w-[7vw]'/>;
+  //     case formData.category=='Business Development':
+  //       return <FaChartPie  className='h-[7vh] hover:text-white w-[7vw]'/>;
+  //     case formData.category== 'Project Management':
+  //       return <FaRegCalendar  className='h-[7vh] hover:text-white  w-[7vw]'/>;
+  //     case formData.category=='Teacher':
+  //       return <GiTeacher className='h-[7vh] hover:text-white  w-[7vw]' />;
+  //     case formData.category=='Finance':
+  //       return <FaChartLine className='h-[7vh] hover:text-white  w-[7vw]' />;
+  //     default:
+  //       return null;
+  //   }
+  // };
   const Userstate=useSelector(state=>state.User)
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     salary: '',
+    logo:"",
+    bgimage:"",
     category:"",  
     type: '',
     requirements: '',
@@ -31,8 +55,9 @@ const Jobpost = () => {
     await axios.post("http://localhost:8080/create-job",{
       postedby:Userstate.loginuser.userid,
       title:formData.title,
-      company:formData.company,
       category:formData.category,
+      company:formData.company,
+bgimage:formData.bgimage,
       location:formData.location,
       description:formData.description,
       requirements:formData.requirements,
@@ -70,20 +95,36 @@ const Jobpost = () => {
             required
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="category" className="block text-xl font-medium  text-black">
-          Category
+  <div className='mb-4'>
+    <label htmlFor="category" className="block text-xl font-medium  text-black">
+            Job category
           </label>
-          <input
-            type="text"
-            id="category"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-            className="mt-1 p-2 border-2 rounded-md w-full"
-            required
-          />
-        </div>
+  <select
+  id="category"
+  name="category"
+  value={formData.category}
+  onChange={handleChange}
+  className="mt-1 p-2 border rounded-md w-full"
+  required
+>
+  <option value="">Select Job Category</option>
+  <option value="Software Development">Software Development</option>
+  <option value="Marketing">Marketing</option>
+  <option value="Finance">Finance</option>
+  <option value="Healthcare">Healthcare</option>
+  <option value="Education">Education</option>
+  <option value="Engineering">Engineering</option>
+  <option value="Sales">Sales</option>
+  <option value="Customer Service">Customer Service</option>
+  <option value="Human Resources">Human Resources</option>
+  <option value="Design">Design</option>
+  <option value="Information Technology">Information Technology</option>
+  <option value="Business Development">Business Development</option>
+  <option value="Operations">Operations</option>
+  <option value="Research and Development">Research and Development</option>
+   <option value="Other">Other</option>
+</select></div>
+
         {/* Description */}
         <div className="mb-4">
           <label htmlFor="description" className="block text-xl font-medium  text-black">
@@ -178,6 +219,20 @@ const Jobpost = () => {
             id="company"
             name="company"
             value={formData.company}
+            onChange={handleChange}
+            className="mt-1 p-2 border rounded-md w-full"
+            required
+          />
+        </div>
+        
+        <div className="mb-4">
+          <label htmlFor="bgimage" className="block text-xl font-medium  text-black">
+            Background Image <span>(url)</span>
+          </label>
+          <textarea
+            id="bgimage"
+            name="bgimage"
+            value={formData.bgimage}
             onChange={handleChange}
             className="mt-1 p-2 border rounded-md w-full"
             required

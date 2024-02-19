@@ -3,75 +3,77 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Template from "../Components/Template"
 import axios from 'axios'
+import getlogo from "./Logo"
 import Swal from 'sweetalert2'
-import { FaLongArrowAltRight } from "react-icons/fa"
+import { FaGlobeAmericas, FaLongArrowAltRight, FaSearch } from "react-icons/fa"
 import { JOB } from '../Redux/Action'
 
 export default function Jobfind() {
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US',options);
+  };
   const navigate=useNavigate()
 const jobstate=useSelector(state=>state.Job)
 const userstate=useSelector(state=>state.User)
     const [job,setjob]=useState([])
-
+const Axis=async()=>{
+  await axios.get("http://localhost:8080/find-jobs").then((res)=>{
+    setjob(res.data)
+   
+ }).catch((e)=>console.log(e))  
+}
         useEffect(() => {
-      axios.get("http://localhost:8080/find-jobs").then((res)=>{
-         setjob(res.data)
-        
-      }).catch((e)=>console.log(e))  
+     Axis()
     }, [])
     
   return (
     <>
     <Template>
-    <div  className='flex flex-wrap justify-evenly gap-x-6 w-[87vw] ml-[6vw]'>
-    {job.map((item) => {
-        return (
-
-          <div key={item.id} className='h-[550px] rounded-2xl mt-9 w-[365px]  flex flex-col bg-white'>
-            {userstate.loginuser?.Username ? <Link to={""}
-              onClick={() => {
-                dispatch({
-                  type: JOB,
-                  payload: { jobid: item._id,title:item.title,company:item.company, salary: item.salary, location: item.location, description: item.description }
-                })
-              }}
-              className='h-64 rounded-t-2xl  bg-cover '>
-             <img
-  src={`https://api.dicebear.com/7.x/shapes/svg?seed=${item.title}`}
-  className='h-64  w-[45vw] content-center'
-  alt="avatar" />
-            </Link> : <Link to={"/signup"}
-              onClick={() => {
-                Swal.fire({
-                  title: 'please Register first ',
-                  text: 'Unauthorized access you are not Registered',
-                  icon: 'error',
-                })
-              }}
-              className='h-64 rounded-t-2xl  bg-cover '>
-             <img
-  src="https://api.dicebear.com/7.x/shapes/svg?seed=Kitty"
-  className='h-64  w-[45vw] content-center'
-  alt="avatar" />
-            </Link>}
-
-            <div className='flex flex-col w-[350px]'>
-              <div className='flex text-[21.6px] font-bold mt-11 text-[#415161]'><h1>{item.title} in {"    "}{item.company}</h1></div>
-              <div className='flex items-center  text-[#4440DA] mt-5'> <span className='text-lg'>{item.salary}$</span> <h1 className='text-xs mt-2' ></h1> <h1 className='ml-[8vw] '>
-                
-                {userstate.loginuser?.Username ?<button onClick={()=>navigate("/details")} className='flex justify-center items-center bg-[#4440DA] text-white rounded-sm  p-2'>Apply Now<FaLongArrowAltRight className='ml-3' /> </button>:<button onClick={()=>{Swal.fire({
-                  title: 'please Register first ',
-                  text: 'Unauthorized access you are not Registered',
-                  icon: 'error',
-                });navigate("/signup")}} className='flex justify-center items-center bg-[#4440DA] text-white rounded-sm  p-2'>Apply Now<FaLongArrowAltRight className='ml-3' /> </button>}</h1></div>
-              <div className='mt-3'><p>{item.description}</p></div>
-            </div>
+      <div className='w-full h-[50vh] flex flex-col bg-[#ede5e6]'>
+<h1 className='ml-[4vw] text-6xl font-bold mt-9'>Jobs</h1>
+<h1 className='ml-[4vw] mt-3 text-[#464646]'>Search your career opportunity through 12,800 jobs</h1>
+<div className='w-[30vw] flex bg-white justify-evenly items-center h-20 rounded-full shadow-lg mt-12 ml-[4vw]  '>
+          <div><input  placeholder='Looking for a job? Start here...' className='h-10 w-[20vw] focus:outline-none border-white active:border-white' type="search" name="search" id="search" /></div>
+         
+          <div className='bg-[#f06f35]  h-[50px] w-[50px] flex justify-center items-center rounded-full'><FaSearch className=' text-white' /></div>
           </div>
+      </div>
+    <div className='flex flex-wrap gap-7 ml-[4vw] mt-32'>
+      <div className='bg-[#ede5e6] rounded-3xl h-[80vh] w-[25vw]'>
+  <h1 className='mt-4 ml-5 font-bold text-xl'>Types of Employment</h1>
+ <div className='ml-5 mt-2 gap-5 '>
+ <label className='mt-3 text-lg'><input className='m-4' type="checkbox" name="jobType" value="contract"/> Contract</label><br/>
+  <label className='mt-3 text-lg'><input className='m-4' type="checkbox" name="jobType" value="internship"/> Internship</label><br/>
+  <label className='mt-3 text-lg'><input  className='m-4'  type="checkbox" name="jobType" value="freelance"/> Freelance</label><br/>
+  <label className='mt-3 text-lg'><input className='m-4'  type="checkbox" name="jobType" value="part-time"/> Part-time</label><br/>
+  <label className='mt-3 text-lg'><input  className='m-4' type="checkbox" name="jobType" value="full-time"/> Full-time</label><br/>
+ </div>
+ 
+</div>
+{job.map((item,index)=>{
+    return <div key={index} className='border-[1px] shadow-lg bg-white relative  rounded-3xl   w-[28vw] h-[75vh]'>
+<div style={{transition: "all",backgroundImage: `url(${item.bgimage})`}} className={`h-[40%]  w-full bg-cover rounded-3xl border-black`}> 
+<div  className='h-[6vw] w-[6vw] absolute  right-5 rounded-3xl mt-32 z-1 '>
+  <img className='h-[6vw] w-[6vw] rounded-3xl z-1 ' src={`https://api.dicebear.com/7.x/icons/svg?seed=${item.title}`} alt="" />
+</div>
+</div>
+<div>
+  <div className='flex ml-9 mt-3 items-center gap-2'><span className='h-8 w-8 rounded-2xl bg-[#ede5e6] flex justify-center items-center border-black'>{getlogo(item.category)}</span> <h1 className='text-sm'>{item.category}</h1></div>
+  <div className='ml-9 mt-6 '>
+    <h1 className='text-xl font-bold'>{item.title}</h1>
+    <div className='flex gap-3 mt-4 items-center'><span><FaGlobeAmericas /></span> <h1 className=''>{item.location}</h1> <span  className='ml-28 text-gray-500'>{item.type}</span></div>
+  </div>
+  <div className='mt-6 ml-9'><span>$</span>{item.salary[0]}/yr-${item.salary[1]}/yr</div>
+  <h1 className='ml-9 text-sm font-thin text-gray-500 mt-5'>{formatDate(item.createdAt)}{"   "}by</h1>
+  <h1 className='ml-9 text-sm font-bold mt-1 '>{item.company}</h1>
+</div>
+    </div>
+  })}
 
 
-        )
-      })}
-</div></Template>
+</div>
+</Template>
     </>
   )
 }

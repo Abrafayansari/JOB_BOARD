@@ -1,0 +1,157 @@
+[
+    {
+      "title": "Software Engineer",
+      "category": "Software Development",
+      "company": "TechCo",
+      "bgimage": "https://images.pexels.com/photos/3861951/pexels-photo-3861951.jpeg",
+      "location": "San Francisco, CA",
+      "description": "Join our team as a Software Engineer and help build cutting-edge software solutions. You'll work on exciting projects and collaborate with talented developers.",
+      "requirements": "Bachelor's degree in Computer Science or related field, proficiency in programming languages such as JavaScript, experience with frameworks like React or Angular.",
+      "type": "Full-time",
+      "salary": [90000, 120000]
+    },
+    {
+      "title": "Marketing Manager",
+      "category": "Marketing",
+      "company": "MarketingPro",
+      "bgimage": "https://prismmecom.b-cdn.net/media/2619/digital-marketing-manager-skills-banner.jpg",
+      "location": "New York, NY",
+      "description": "Marketing Manager position available at MarketingPro. Lead our marketing team in developing and executing innovative marketing campaigns.",
+      "requirements": "Bachelor's degree in Marketing or related field, strong communication and leadership skills, experience in digital marketing.",
+      "type": "Full-time",
+      "salary": [80000, 100000]
+    },
+    {
+      "title": "Financial Analyst",
+      "category": "Finance",
+      "company": "FinanceCorp",
+      "bgimage": "https://as1.ftcdn.net/v2/jpg/04/56/36/14/1000_F_456361496_zBtIarWAqDy0XjtsmMHryRVZWId089wW.jpg",
+      "location": "Chicago, IL",
+      "description": "FinanceCorp is hiring a Financial Analyst to analyze financial data and provide insights to support strategic decision-making.",
+      "requirements": "Bachelor's degree in Finance or related field, strong analytical skills, proficiency in financial modeling.",
+      "type": "Full-time",
+      "salary": [70000, 90000]
+    },
+    {
+      "title": "Registered Nurse",
+      "category": "Healthcare",
+      "company": "HealthCarePlus",
+      "bgimage": "https://www.forbes.com/advisor/wp-content/uploads/2023/04/nurse-helping-patient.jpeg-900x510.jpg",
+      "location": "Los Angeles, CA",
+      "description": "HealthCarePlus is seeking a Registered Nurse to provide compassionate care to patients. Join our team of dedicated healthcare professionals.",
+      "requirements": "Bachelor of Science in Nursing (BSN), current RN license, CPR certification.",
+      "type": "Full-time",
+      "salary": [60000, 80000]
+    },
+    {
+      "title": "Elementary School Teacher",
+      "category": "Education",
+      "company": "BrightFuture School",
+      "bgimage": "https://www.forbes.com/advisor/wp-content/uploads/2023/07/elementary-classroom.jpeg.jpg",
+      "location": "Houston, TX",
+      "description": "BrightFuture School is hiring an Elementary School Teacher to inspire and educate young minds. Make a difference in children's lives!",
+      "requirements": "Bachelor's degree in Education, teaching certification, experience working with elementary school students.",
+      "type": "Full-time",
+      "salary": [50000, 70000]
+    },
+    {
+      "title": "Mechanical Engineer",
+      "category": "Engineering",
+      "company": "Engineering Solutions",
+      "bgimage": "https://www.forbes.com/advisor/wp-content/uploads/2023/07/working-on-machine.jpeg.jpg",
+      "location": "Seattle, WA",
+      "description": "Engineering Solutions is seeking a Mechanical Engineer to design and develop mechanical systems. Join our team of innovative engineers.",
+      "requirements": "Bachelor's degree in Mechanical Engineering, proficiency in CAD software, experience in product design.",
+      "type": "Full-time",
+      "salary": [80000, 100000]
+    },
+    {
+      "title": "Sales Representative",
+      "category": "Sales",
+      "company": "SalesTech",
+      "bgimage": "https://cdn2.hubspot.net/hubfs/53/Sales%20Hire%20%281%29.jpg",
+      "location": "Atlanta, GA",
+      "description": "SalesTech is hiring a Sales Representative to drive revenue growth and build relationships with clients. Join our dynamic sales team!",
+      "requirements": "Bachelor's degree in Business or related field, strong communication and negotiation skills, previous sales experience preferred.",
+      "type": "Full-time",
+      "salary": [50000, 70000]
+    },
+    {
+      "title": "Customer Service Representative",
+      "category": "Customer Service",
+      "company": "ServiceFirst",
+      "bgimage": "https://img.freepik.com/free-photo/busy-woman-doing-many-things-same-time_1098-3232.jpg",
+      "location": "Miami, FL",
+      "description": "ServiceFirst is seeking a Customer Service Representative to provide excellent customer support. Join our team and make a positive impact!",
+      "requirements": "High school diploma or equivalent, strong communication skills, customer service experience preferred.",
+      "type": "Full-time",
+      "salary": [30000, 40000]
+    },
+    {
+      "title": "HR Specialist",
+      "category": "Human Resources",
+      "company": "HR Solutions",
+      "bgimage": "https://img.freepik.com/free-vector/human-resources-hr-typographic-header-idea-recruitment-job-management-hr-manager-interviewing-job-candidate-flat-vector-illustration_613284-1240.jpg",
+      "location": "Denver, CO",
+      "description": "HR Solutions is hiring an HR Specialist to support various HR functions including recruitment, onboarding, and employee relations.",
+      "requirements": "Bachelor's degree in Human Resources or related field, knowledge of employment laws and regulations, experience in HR roles.",
+      "type": "Full-time",
+      "salary": [60000, 80000]
+    },
+    {
+      "title": "Graphic Designer",
+      "category": "Design",
+      "company": "CreativeWorks",
+      "bgimage": "https://img.freepik.com/premium-photo/graphic-design-written-golden-letters_556904-707.jpg",
+      "location": "Portland, OR",
+      "description": "CreativeWorks is seeking a Graphic Designer to create visually appealing designs for various projects. Join our creative team!",
+      "requirements": "Bachelor's degree in Graphic Design or related field, proficiency in design software such as Adobe Creative Suite, portfolio showcasing design skills.",
+      "type": "Full-time",
+      "salary": [50000, 70000]
+    },
+    {
+      "title": "IT Specialist",
+      "category": "Information Technology",
+      "company": "TechSolutions",
+      "bgimage": "https://img.freepik.com/free-photo/young-man-glassess-is-working-his-workplace-office-he-wears-blue-shirt-he-is-writing-notebook-smiling-camera_197531-538.jpg",
+      "location": "Austin, TX",
+      "description": "TechSolutions is hiring an IT Specialist to provide technical support and maintain IT systems. Join our IT team and solve challenging problems!",
+      "requirements": "Bachelor's degree in Computer Science or related field, experience in IT support, knowledge of networking and troubleshooting.",
+      "type": "Full-time",
+      "salary": [60000, 80000]
+    },
+    {
+      "title": "Business Development Manager",
+      "category": "Business Development",
+      "company": "BizGrowth",
+      "bgimage": "https://img.freepik.com/free-photo/business-people-meeting_53876-25161.jpg",
+      "location": "Boston, MA",
+      "description": "BizGrowth is seeking a Business Development Manager to drive business growth and expand our client base. Join our dynamic team!",
+      "requirements": "Bachelor's degree in Business or related field, proven track record in business development, strong negotiation skills.",
+      "type": "Full-time",
+      "salary": [70000, 90000]
+    },
+    {
+      "title": "Operations Manager",
+      "category": "Operations",
+      "company": "OpsWorks",
+      "bgimage": "https://img.freepik.com/premium-photo/hands-businessman-virtual-innovation-business-process-problem-solving-workflow-monitoring-evaluation-as-well-as-quality-control-are-all-part-operations-management_27634-829.jpg",
+      "location": "Dallas, TX",
+      "description": "OpsWorks is hiring an Operations Manager to oversee daily operations and improve efficiency. Join our team and drive operational excellence!",
+      "requirements": "Bachelor's degree in Business Administration or related field, experience in operations management, strong leadership skills.",
+      "type": "Full-time",
+      "salary": [80000, 100000]
+    },
+    {
+      "title": "Research Scientist",
+      "category": "Research and Development",
+      "company": "ResearchTech",
+      "bgimage": "https://img.freepik.com/free-photo/scientists-work-closely-with-microscope-laboratory-by-conducting-experiments-analyzes_146671-18059.jpg",
+      "location": "San Diego, CA",
+      "description": "ResearchTech is seeking a Research Scientist to conduct scientific research and develop innovative solutions. Join our research team and make breakthrough discoveries!",
+      "requirements": "PhD in a scientific field (e.g., Chemistry, Biology, Physics), research experience, strong analytical and problem-solving skills.",
+      "type": "Full-time",
+      "salary": [90000, 120000]
+    }
+  ]
+  

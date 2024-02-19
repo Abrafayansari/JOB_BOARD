@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const jobSchema = new mongoose.Schema({
   postedby:{
     type:mongoose.Schema.Types.ObjectId,ref:"User",
-    required:true
+    
     
   },
   title: {
@@ -18,6 +18,11 @@ required:true
     type: String,
     required: true
   },
+  bgimage:{
+    type:String,
+    requred:true,
+  },
+  
   location: String,
   description: {
     type: String,
@@ -34,7 +39,7 @@ required:true
     required: true
   },
   salary: {
-    type: Number,
+    type: [Number],
   }
 
 }, { timestamps: true });

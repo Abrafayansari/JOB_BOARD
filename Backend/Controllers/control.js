@@ -1,9 +1,14 @@
 const Job = require("../Models/Job")
 const UserModel = require("../Models/User")
 const JobApply = require("../Models/jobapply")
+const jobdata = require("./jobdata.json")
 exports.create=async(req,res)=>{
     const { Username, Email, Password,isEmployee } = req.body
     const exist=await UserModel.find({Email:Email})
+ 
+
+
+
     if(exist.length>=1){
         res.status(404).json({
             message:"User Already Exist"
@@ -13,6 +18,17 @@ exports.create=async(req,res)=>{
         res.json(created)
     }
     
+    }
+    exports. uploadjob=async(req,res)=> {
+      try {
+        await Job.deleteMany({}); // Clear existing data
+        const insertedJobs = await Job.insertMany(jobdata);
+        res.json(insertedJobs)
+        console.log(`${insertedJobs.length} jobs inserted successfully.`);
+      } catch (error) {
+        console.error('Error uploading jobs:', error);
+      } finally {
+      }
     }
     exports.find=async(req,res)=>{
         const  {  Email, Password } = req.body
@@ -33,6 +49,7 @@ exports.create=async(req,res)=>{
             title,
             category,
             company,
+            bgimage,
             location,
             description,
             requirements,
@@ -44,6 +61,8 @@ exports.create=async(req,res)=>{
             title,
             category,
             company,
+
+            bgimage,
             location,
             description,
             requirements,
