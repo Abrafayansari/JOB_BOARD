@@ -18,7 +18,7 @@
       "location": "New York, NY",
       "description": "Marketing Manager position available at MarketingPro. Lead our marketing team in developing and executing innovative marketing campaigns.",
       "requirements": "Bachelor's degree in Marketing or related field, strong communication and leadership skills, experience in digital marketing.",
-      "type": "Full-time",
+      "type": "Part-time",
       "salary": [80000, 100000]
     },
     {
@@ -29,7 +29,7 @@
       "location": "Chicago, IL",
       "description": "FinanceCorp is hiring a Financial Analyst to analyze financial data and provide insights to support strategic decision-making.",
       "requirements": "Bachelor's degree in Finance or related field, strong analytical skills, proficiency in financial modeling.",
-      "type": "Full-time",
+      "type": "Freelance",
       "salary": [70000, 90000]
     },
     {
@@ -40,7 +40,7 @@
       "location": "Los Angeles, CA",
       "description": "HealthCarePlus is seeking a Registered Nurse to provide compassionate care to patients. Join our team of dedicated healthcare professionals.",
       "requirements": "Bachelor of Science in Nursing (BSN), current RN license, CPR certification.",
-      "type": "Full-time",
+      "type": "Internship",
       "salary": [60000, 80000]
     },
     {
@@ -51,7 +51,7 @@
       "location": "Houston, TX",
       "description": "BrightFuture School is hiring an Elementary School Teacher to inspire and educate young minds. Make a difference in children's lives!",
       "requirements": "Bachelor's degree in Education, teaching certification, experience working with elementary school students.",
-      "type": "Full-time",
+      "type": "Contract",
       "salary": [50000, 70000]
     },
     {
@@ -73,7 +73,7 @@
       "location": "Atlanta, GA",
       "description": "SalesTech is hiring a Sales Representative to drive revenue growth and build relationships with clients. Join our dynamic sales team!",
       "requirements": "Bachelor's degree in Business or related field, strong communication and negotiation skills, previous sales experience preferred.",
-      "type": "Full-time",
+      "type": "Part-time",
       "salary": [50000, 70000]
     },
     {
@@ -84,7 +84,7 @@
       "location": "Miami, FL",
       "description": "ServiceFirst is seeking a Customer Service Representative to provide excellent customer support. Join our team and make a positive impact!",
       "requirements": "High school diploma or equivalent, strong communication skills, customer service experience preferred.",
-      "type": "Full-time",
+      "type": "Freelance",
       "salary": [30000, 40000]
     },
     {
@@ -95,7 +95,7 @@
       "location": "Denver, CO",
       "description": "HR Solutions is hiring an HR Specialist to support various HR functions including recruitment, onboarding, and employee relations.",
       "requirements": "Bachelor's degree in Human Resources or related field, knowledge of employment laws and regulations, experience in HR roles.",
-      "type": "Full-time",
+      "type": "Internship",
       "salary": [60000, 80000]
     },
     {
@@ -106,7 +106,7 @@
       "location": "Portland, OR",
       "description": "CreativeWorks is seeking a Graphic Designer to create visually appealing designs for various projects. Join our creative team!",
       "requirements": "Bachelor's degree in Graphic Design or related field, proficiency in design software such as Adobe Creative Suite, portfolio showcasing design skills.",
-      "type": "Full-time",
+      "type": "Contract",
       "salary": [50000, 70000]
     },
     {
@@ -128,7 +128,7 @@
       "location": "Boston, MA",
       "description": "BizGrowth is seeking a Business Development Manager to drive business growth and expand our client base. Join our dynamic team!",
       "requirements": "Bachelor's degree in Business or related field, proven track record in business development, strong negotiation skills.",
-      "type": "Full-time",
+      "type": "Part-time",
       "salary": [70000, 90000]
     },
     {
@@ -139,7 +139,7 @@
       "location": "Dallas, TX",
       "description": "OpsWorks is hiring an Operations Manager to oversee daily operations and improve efficiency. Join our team and drive operational excellence!",
       "requirements": "Bachelor's degree in Business Administration or related field, experience in operations management, strong leadership skills.",
-      "type": "Full-time",
+      "type": "Internship",
       "salary": [80000, 100000]
     },
     {
@@ -150,7 +150,7 @@
       "location": "San Diego, CA",
       "description": "ResearchTech is seeking a Research Scientist to conduct scientific research and develop innovative solutions. Join our research team and make breakthrough discoveries!",
       "requirements": "PhD in a scientific field (e.g., Chemistry, Biology, Physics), research experience, strong analytical and problem-solving skills.",
-      "type": "Full-time",
+      "type": "Contract",
       "salary": [90000, 120000]
     }
   ]

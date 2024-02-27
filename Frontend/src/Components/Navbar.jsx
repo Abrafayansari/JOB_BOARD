@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import { FaPlus } from "react-icons/fa";
-
+import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
 import CustomDropdown from './Dropdown'
+import Login from '../Pages/Login';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const emailInputRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     function handleScroll() {
+      
       if (window.scrollY > 0) {
         setScrolled(true);
       } else {
@@ -30,12 +35,20 @@ const normal="border-[#ede5e6] border-transparent border-b-4  hover:border-[#f06
    
     return<>
   <NavLink className={({isActive})=>isActive?active:normal} to={"/signup"}>Signup</NavLink>
-      <NavLink className={({isActive})=>isActive?logit:logi} to={"/login"}>login</NavLink>
+      <NavLink onClick={() => setOpenModal(true)} className={({isActive})=>isActive?logit:logi} >login</NavLink>
   </>}
   const UserState=useSelector(state=>state.User)
   return (
     <div  className={`flex border-b-2  bg-${scrolled ? 'white' : '[#ede5e6]'} sticky z-30 left-0 top-0 h-16 items-center font-semibold  bg- justify-between p-9`}>
-      <div className='text-2xl font-bold text-[#f06f35]'>JOBSTER.</div>
+      
+      <div className='text-2xl font-bold text-[#f06f35]'>JOBSTER. 
+      <Modal show={openModal} size="md" popup onClose={() => setOpenModal(false)} initialFocus={emailInputRef}>
+        <Modal.Header />
+        <Modal.Body>
+          <Login/>
+        </Modal.Body>
+      </Modal>
+      </div>
       {/* <div className='flex justify-evenly gap-12'></div> */}
       <div className='md:flex justify-center items-center hidden  gap-12'><ToastContainer/>
      

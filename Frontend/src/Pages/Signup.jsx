@@ -51,7 +51,7 @@ function Signup() {
     return (
         <>
             <Template>
-                <div className="flex justify-center h-[80vh] items-center bg-slate-400">
+                <div className="flex justify-center h-[80vh] items-center bg-[#ede5e6]">
                     <div data-aos="zoom-out" className=" ">
 
 

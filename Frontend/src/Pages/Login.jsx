@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import AOS from 'aos';
+
 import 'aos/dist/aos.css';
 import { useNavigate } from 'react-router-dom';
 export default function Login() {
@@ -21,8 +22,8 @@ e.preventDefault()
     return (
         <>
         
-        <Navbar/>
-     {JSON.stringify(login)}
+        
+     
         <div data-aos="zoom-out" className="flex  flex-col items-center justify-center
         ">
         

@@ -21,13 +21,12 @@ exports.create=async(req,res)=>{
     }
     exports. uploadjob=async(req,res)=> {
       try {
-        await Job.deleteMany({}); // Clear existing data
+        await Job.deleteMany({}); 
         const insertedJobs = await Job.insertMany(jobdata);
         res.json(insertedJobs)
         console.log(`${insertedJobs.length} jobs inserted successfully.`);
       } catch (error) {
         console.error('Error uploading jobs:', error);
-      } finally {
       }
     }
     exports.find=async(req,res)=>{
@@ -61,7 +60,6 @@ exports.create=async(req,res)=>{
             title,
             category,
             company,
-
             bgimage,
             location,
             description,
@@ -77,9 +75,18 @@ exports.create=async(req,res)=>{
         }
       };
       exports.findjob=async (req, res) => {
+        // const {title}=req.query
+        // const queryobj={}
+        //  queryobj.title= title
         try {
-          const jobs = await Job.find().populate("postedby")
+          const jobs = await Job.find( req.query).populate("postedby")
+         if (jobs.length>=1) {
           res.json(jobs)
+         } else {
+          res.status(404).send({
+            message:"no result"
+          })
+         }
         } catch (error) {
           console.error(error);
           res.status(500).send('Internal Server Error');

@@ -15,11 +15,14 @@ import { FaUserDoctor } from "react-icons/fa6";
 import getlogo from "./Logo"
 import axios from "axios"
 import job from "../data/data.json"
+import Navbar from '../Components/Navbar';
 export default function Home() {
-const [secjob,setsecjob]=useState([])
+  const [secjob,setsecjob]=useState([])
 const Axis=async()=>{
 await axios.get("http://localhost:8080/find-jobs")
-.then((res)=>setsecjob(res.data))
+.then((res)=>{
+  
+  setsecjob(res.data)})
 .catch((e)=>console.log(e))
 }
 const formatDate = (dateString) => {
@@ -29,7 +32,7 @@ const formatDate = (dateString) => {
 useEffect(() => {
  Axis()
 }, [])
-
+console.log(secjob)
 
 
   const getIcon = (iconName) => {
@@ -54,11 +57,11 @@ useEffect(() => {
         return null;
     }
   };
-  
+
   const UserState=useSelector(state=>state.User)
   return (
     <div>
-      <Template>
+      <Navbar/>
         <div className='bg-cover flex h-[120vh] w-[100%] bg-[#ede5e6]  '>
          <div className='h-full  flex flex-col  w-full'> <h1 className='ml-[4vw] text-6xl mt-32 font-bold w-[45vw] '>Find the perfect </h1><h1 className='text-6xl font-bold ml-[4vw] w-[45vw] '>job for you</h1>
          <h1 className='ml-[4vw] mt-10 text-xl text-[#323233]'>Search your career opportunity through 12,800 jobs</h1> 
@@ -80,7 +83,7 @@ useEffect(() => {
 </h1>
 <h1 className='ml-[4vw] mt-5 text-[#464646]'>Search your career opportunity with our categories</h1>
 
-        <div className='flex mt-32 gap-y-3 w-[90vw] gap-3 justify-start flex-wrap overflow-hidden ml-[4vw]'>
+        <div className='grid sm:grid-cols-5 mt-32 gap-y-3 w-[90vw] gap-3  overflow-hidden ml-[4vw]'>
   {job.map((item,index)=>{
 return(
 <div key={index} className='h-64 rounded-3xl bg-[#ede5e6] text-[#f06f35] m-[0.5vw] flex flex-col justify-center items-center w-[15vw] overflow-hidden' >
@@ -107,9 +110,9 @@ return(
           <h1 className='text-5xl font-bold ml-[4vw] '>Featured Job Offers</h1>
           <h1 className='ml-[4vw] mt-5 font-bold text-[#464646]'>Search your career opportunity through 12,800 jobs</h1>
 
-           <div className='flex flex-wrap gap-7 ml-[4vw] mt-32'>
-  {secjob.slice(0, 8).map((item,index)=>{
-    return <div key={index} className=' bg-white relative  rounded-3xl   w-[28vw] h-[75vh]'>
+         
+ {Array.isArray(secjob)? <div className='grid sm:grid-cols-4 gap-2 gap-y-4 ml-[4vw] mt-32'> {secjob.slice(0, 8).map((item,index)=>{
+    return <div key={index}  className=' bg-white relative  rounded-3xl w-[22vw] h-[500px]'>
 <div style={{transition: "all",backgroundImage: `url(${item.bgimage})`}} className={`h-[40%]  w-full bg-cover rounded-3xl border-black`}> 
 <div  className='h-[6vw] w-[6vw] absolute  right-5 rounded-3xl mt-32 z-1 '>
   <img className='h-[6vw] w-[6vw]   rounded-3xl z-1 ' src={`https://api.dicebear.com/7.x/icons/svg?seed=${item.company}`} alt="" />
@@ -119,21 +122,21 @@ return(
   <div className='flex ml-9 mt-3 items-center gap-2'><span className='h-8 w-8 rounded-2xl bg-[#ede5e6] flex justify-center items-center border-black'>{getlogo(item.category)}</span> <h1 className='text-sm'>{item.category}</h1></div>
   <div className='ml-9 mt-6 '>
     <h1 className='text-xl font-bold'>{item.title}</h1>
-    <div className='flex gap-3 mt-4 items-center'><span><FaGlobeAmericas /></span> <h1 className=''>{item.location}</h1> <span  className='ml-28 text-gray-500'>{item.type}</span></div>
+    <div className='flex gap-3 mt-4 items-center'><span><FaGlobeAmericas /></span> <h1 className=''>{item.location}</h1> <span  className=' text-gray-500'>{item.type}</span></div>
   </div>
-  <div className='mt-6 ml-9'><span>$</span>{item.salary[0]}/yr-${item.salary[1]}/yr</div>
+  <div className='mt-6 ml-9'><span>$</span>{item.salary[0]/1000}k - ${item.salary[1]/1000}k /year</div>
   <h1 className='ml-9 text-sm font-thin text-gray-500 mt-5'>{formatDate(item.createdAt)}{"   "}by</h1>
   <h1 className='ml-9 text-sm font-bold mt-1 '>{item.company}</h1>
 </div>
     </div>
-  })}
-</div>
+  })}</div>:console.log("error")}
+
 
           </div>
         </div>
 
         
-      </Template>
+    
     </div>
   )
 }
