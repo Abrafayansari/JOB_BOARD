@@ -1,16 +1,29 @@
-import React from 'react'
+import React, {useState,useRef}from 'react'
 import { useSelector } from 'react-redux'
 import Template from '../Components/Template'
 import getlogo from './Logo'
+import { Button, Checkbox, Label, Modal, ModalHeader, TextInput } from 'flowbite-react';
+import Login from './Login';
+import Jobapply from './Jobapply';
+
 
 export default function Details() {
  
+  const [openModal, setOpenModal] = useState(false);
+  const emailInputRef = useRef<HTMLInputElement>(null);
 
   const jobstate=useSelector(state=>state.Job)
   return (
     <Template>
     <div className='flex flex-col h-[190vh]'>
-      
+    <Modal className='' show={openModal} size="md" popup onClose={() => setOpenModal(false)} initialFocus={emailInputRef}>
+        <Modal.Header className=' text-4xl text-[#f06f35]'>
+        <h2 style={{fontFamily:""}} className="text-4xl ml-[11vw] text-black  font-bold text-center  mt-10  ">Apply</h2>
+          </Modal.Header>
+        <Modal.Body className='px-14'>
+          <Jobapply/>
+        </Modal.Body>
+      </Modal>
   <div className='flex flex-col mt- relative justify-center items-center w-full'>
     <div className='h-[70vh] rounded-3xl  w-[80vw]'>
     <div style={{backgroundImage:`url(${jobstate.currentjob.bgimage})`}} className='h-[65vh] rounded-3xl bg-cover w-[80vw]'></div>
@@ -31,7 +44,7 @@ export default function Details() {
         </div>
       </div>
       <div className="flex items-center gap-[5vw] space-x-4">
-        <div className=" flex flex-col "><button className='h-10 p-2 text-white mb-2 rounded-full w-28 bg-[#f06f35]'>Apply Now</button> <span className='text-gray-500 text-sm'>June 7, 2022</span></div>
+        <div className=" flex flex-col "><button className='h-10 p-2 text-white mb-2 rounded-full w-28 bg-[#f06f35]' onClick={() => setOpenModal(true)}>Apply Now</button> <span className='text-gray-500 text-sm'>June 7, 2022</span></div>
         <div className='w-[15vw] flex flex-col p-4 h-56 bg-[#ede5e6] rounded-3xl'>
 <h1 className='text-sm  text-gray-700 '>Location</h1>
 <h1 className='mb-5 font-semibold'>{jobstate.currentjob.location}</h1>

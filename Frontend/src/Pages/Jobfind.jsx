@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import Template from "../Components/Template"
 import axios from 'axios'
 import getlogo from "./Logo"
-import { Spinner } from 'flowbite-react';import Swal from 'sweetalert2'
+import { Spinner } from 'flowbite-react';
+import Swal from 'sweetalert2'
 import { FaGlobeAmericas, FaLongArrowAltRight, FaSearch } from "react-icons/fa"
 import { JOB } from '../Redux/Action'
 

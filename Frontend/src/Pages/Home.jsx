@@ -3,6 +3,7 @@ import Template from '../Components/Template'
 import { useSelector } from 'react-redux'
 import { IoCodeSlash } from "react-icons/io5";
 import { FaChartLine, FaSearch } from "react-icons/fa";
+import { Spinner } from 'flowbite-react';
 import { TiTick } from "react-icons/ti";
 import { FaRegCalendar } from "react-icons/fa";
 import { HiSpeakerphone } from "react-icons/hi";
@@ -18,10 +19,12 @@ import job from "../data/data.json"
 import Navbar from '../Components/Navbar';
 export default function Home() {
   const [secjob,setsecjob]=useState([])
+  const [loading, setloading] = useState(true)
+
 const Axis=async()=>{
 await axios.get("http://localhost:8080/find-jobs")
 .then((res)=>{
-  
+  setloading(false)
   setsecjob(res.data)})
 .catch((e)=>console.log(e))
 }
@@ -105,13 +108,13 @@ return(
 <button className='bg-[#f06f35] flex items-center gap-3 ml-[7vw] mt-20   px-4 rounded-2xl w-52  text-white h-16 p-2 text-left font-bold text-xl'> Explore More <HiArrowNarrowRight /></button>
 
         </div>
-        <div className='h-[320vh] flex flex-col  w-full bg-[#ede5e6]'>
+        <div className=' h-min-screen h-auto flex flex-col  w-full bg-[#ede5e6]'>
           <div className='mt-20'>
           <h1 className='text-5xl font-bold ml-[4vw] '>Featured Job Offers</h1>
           <h1 className='ml-[4vw] mt-5 font-bold text-[#464646]'>Search your career opportunity through 12,800 jobs</h1>
 
          
- {Array.isArray(secjob)? <div className='grid sm:grid-cols-4 gap-2 gap-y-4 ml-[4vw] mt-32'> {secjob.slice(0, 8).map((item,index)=>{
+ {loading == false? Array.isArray(secjob)? <div className='grid sm:grid-cols-4 gap-2 gap-y-4 ml-[4vw] mt-32'> {secjob.slice(0, 8).map((item,index)=>{
     return <div key={index}  className=' bg-white relative  rounded-3xl w-[22vw] h-[500px]'>
 <div style={{transition: "all",backgroundImage: `url(${item.bgimage})`}} className={`h-[40%]  w-full bg-cover rounded-3xl border-black`}> 
 <div  className='h-[6vw] w-[6vw] absolute  right-5 rounded-3xl mt-32 z-1 '>
@@ -129,7 +132,7 @@ return(
   <h1 className='ml-9 text-sm font-bold mt-1 '>{item.company}</h1>
 </div>
     </div>
-  })}</div>:console.log("error")}
+  })}</div>:console.log("error"):<div className='ml-[50vw] mt-28'> <Spinner  aria-label="Default status example" /></div>}
 
 
           </div>
